@@ -4,18 +4,27 @@ export default {
    ** Doc: https://nuxtjs.org/guides/features/deployment-targets
    */
   target: "static",
+  router: {
+    base: '/nuxt-content-github/',
+  },
   /*
    ** Rendering mode
    ** Doc: https://nuxtjs.org/guides/features/rendering-modes
    */
   mode: "universal",
+  vue: {
+    config: {
+      productionTip: false,
+      devtools: true
+    }
+  },
 
   /*
    ** Nuxt.js modules
    ** Doc: https://nuxtjs.org/guides/configuration-glossary/configuration-modules
    */
   // buildModules: ['~/modules/content'],
-  modules: ["~/modules/content"],
+  modules: ["@nuxt/content"],
   // content: {
   //   // Disable for security reason on CodeSandBox
   //   //liveEdit: false

@@ -7,10 +7,9 @@
     "post-update": "yarn upgrade --latest"
   },
   "dependencies": {
+    "@nuxt/content": "^1.14.0",
     "nuxt": "^2.15.6",
     "octokit": "^1.0.4"
   },
-  "devDependencies": {
-    "@nuxt/content": "^1.14.0"
-  }
+  "devDependencies": {}
 }
