@@ -5,7 +5,7 @@ export default {
    */
   target: "static",
   router: {
-    base: '/nuxt-content-github/',
+    //base: '/nuxt-content-github/', // TODO: Issue with @nuxt/auth redirect
   },
   /*
    ** Rendering mode
@@ -24,7 +24,11 @@ export default {
    ** Doc: https://nuxtjs.org/guides/configuration-glossary/configuration-modules
    */
   // buildModules: ['~/modules/content'],
-  modules: ["@nuxt/content"],
+  modules: [
+    '@nuxt/content',
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next'
+  ],
   // content: {
   //   // Disable for security reason on CodeSandBox
   //   //liveEdit: false
@@ -39,6 +43,22 @@ export default {
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" }
     ]
+  },
+  auth: {
+    strategies: {
+      github: {
+        clientId: 'Iv1.f05a0dce5c26e79f',
+        clientSecret: 'e12db86eb2a555f996cad2bf5380d69923f9d8da'
+      },
+    },
+    redirect: {
+      // home: '/nuxt-content-github/',
+      // login: '/nuxt-content-github/login',
+      logout: '/',
+      // user: '/nuxt-content-github/user',
+      callback:'/callback'
+    }
+
   },
 
   /*
