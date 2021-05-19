@@ -1,1 +1,0 @@
-__NUXT_JSONP__("manifest.js", {routes:["\u002Fnuxt-content-github\u002Fcallback","\u002Fnuxt-content-github"]})

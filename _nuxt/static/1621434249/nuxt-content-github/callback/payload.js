@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/nuxt-content-github/callback", {data:[{}],fetch:{},mutations:void 0});
