@@ -1,9 +1,15 @@
 export default {
+
+  env: {
+    clientId: 'Iv1.f05a0dce5c26e79f',
+    clientSecret: 'e12db86eb2a555f996cad2bf5380d69923f9d8da'
+  },
   /*
    ** Deployment target
    ** Doc: https://nuxtjs.org/guides/features/deployment-targets
    */
   target: "static",
+  ssr: false,
   router: {
     //base: '/nuxt-content-github/', // TODO: Issue with @nuxt/auth redirect
   },
@@ -11,7 +17,6 @@ export default {
    ** Rendering mode
    ** Doc: https://nuxtjs.org/guides/features/rendering-modes
    */
-  mode: "universal",
   vue: {
     config: {
       productionTip: false,
@@ -27,7 +32,7 @@ export default {
   modules: [
     '@nuxt/content',
     '@nuxtjs/axios',
-    '@nuxtjs/auth-next'
+    //'@nuxtjs/auth-next'
   ],
   // content: {
   //   // Disable for security reason on CodeSandBox
@@ -44,22 +49,34 @@ export default {
       { name: "viewport", content: "width=device-width, initial-scale=1" }
     ]
   },
-  auth: {
-    strategies: {
-      github: {
-        clientId: 'Iv1.f05a0dce5c26e79f',
-        clientSecret: 'e12db86eb2a555f996cad2bf5380d69923f9d8da'
-      },
-    },
-    redirect: {
-      // home: '/nuxt-content-github/',
-      // login: '/nuxt-content-github/login',
-      logout: '/',
-      // user: '/nuxt-content-github/user',
-      callback:'/callback'
-    }
-
+  axios: {
+    proxy: true,
+    headers: {
+      common: {
+        'Access-Control-Allow-Origin': '*'
+	  }
+	}
   },
+
+  proxy: {
+    '/github/':  'https://github.com'
+    //'/github/': { target: 'https://github.com', pathRewrite: {'^/api/': ''}, changeOrigin: true }
+  },
+  // auth: { // ISSUE: https://github.com/nuxt-community/auth-module/issues/299
+  //   strategies: {
+  //     github: {
+  //       clientId: 'Iv1.f05a0dce5c26e79f',
+  //       clientSecret: 'e12db86eb2a555f996cad2bf5380d69923f9d8da'
+  //     },
+  //   },
+  //   redirect: {
+  //     home: '/',
+  //     login: '/login',
+  //     logout: '/logout',
+  //     user: '/user',
+  //     callback:'/callback/'
+  //   }
+  // },
 
   /*
    ** Plugins to load before mounting the App
