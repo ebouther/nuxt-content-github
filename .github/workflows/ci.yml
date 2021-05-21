@@ -1,6 +1,9 @@
 name: cd
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+    - main
 
 jobs:
   cd:
@@ -26,7 +29,7 @@ jobs:
       - name: Yarn Link @nuxt/content fork
         run: |
           set -xe
-          git clone --branch feat/octokit-middleware https://github.com/ebouther/content nuxt-content-fork
+          git clone --branch feat/octokit-middleware https://github.com/nuxt-content-github/content nuxt-content-fork
           cd nuxt-content-fork/packages/content && yarn && yarn link
           cd - && yarn link @nuxt/content
 

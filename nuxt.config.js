@@ -58,10 +58,6 @@ export default {
 	}
   },
 
-  proxy: {
-    '/github/':  'https://github.com'
-    //'/github/': { target: 'https://github.com', pathRewrite: {'^/api/': ''}, changeOrigin: true }
-  },
   // auth: { // ISSUE: https://github.com/nuxt-community/auth-module/issues/299
   //   strategies: {
   //     github: {
