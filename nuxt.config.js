@@ -1,9 +1,16 @@
 export default {
 
-  env: {
+  publicRuntimeConfig: {
     clientId: 'Iv1.f05a0dce5c26e79f',
-    clientSecret: 'e12db86eb2a555f996cad2bf5380d69923f9d8da'
+    clientSecret: 'e12db86eb2a555f996cad2bf5380d69923f9d8da',
+    appId: '116023',
+    installationId: '17141426',
+    privateKey: process.env.G_APP_PRIVATE_KEY, // TODO
+    owner: 'nuxt-content-github',
+    repo: 'nuxt-content-github.github.io',
+    branch: 'main',
   },
+  privateRuntimeConfig: {},
   /*
    ** Deployment target
    ** Doc: https://nuxtjs.org/guides/features/deployment-targets

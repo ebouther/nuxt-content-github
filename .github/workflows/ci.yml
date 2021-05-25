@@ -1,5 +1,5 @@
-name: cd
 
+name: cd
 on:
   push:
     branches:
@@ -35,11 +35,11 @@ jobs:
 
       - name: Generate
         run: yarn run generate
+        env:
+          G_APP_PRIVATE_KEY: ${{ secrets.G_APP_PRIVATE_KEY }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-        env:
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
