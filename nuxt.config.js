@@ -8,7 +8,7 @@ export default {
     privateKey: process.env.G_APP_PRIVATE_KEY, // TODO
     owner: 'nuxt-content-github',
     repo: 'nuxt-content-github.github.io',
-    branch: 'main',
+    branch: 'markdown',
   },
   privateRuntimeConfig: {},
   /*
